@@ -1,0 +1,19 @@
+body {
+  background-color: #fafafa;
+  font-family: 'Helvetica', sans-serif;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 300;
+  border-bottom: 1px solid #ccc;
+}
+
+#main-popup {
+  width: 400px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+}
