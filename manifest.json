@@ -22,7 +22,8 @@
     "bookmarks",
     "http://*/*",
     "https://*/*",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "content_scripts": [
     {
