@@ -1,6 +1,7 @@
-// Array containing all Bands records
+// Initialize storage and array containing bands
 
-var musiqueueBands = []
+var storage = chrome.storage.sync;
+var musiqueueBands = [];
 
 // Band Object Constructor
 
@@ -16,24 +17,27 @@ function Band(name, url, photo) {
 function createBand(name, url, photo) {
   var band = new Band(name, url, photo);
 
-  console.log(band);
   saveBand(band);
 }
 
-// Save it to sessionStorage
+// Make it persistant
 function saveBand(band) {
   // Push the new record to the Array
   musiqueueBands.push(band);
 
-  // Encode in JSON and save it
-  sessionStorage.setItem('musiqueueBands', JSON.stringify(musiqueueBands));
+  console.log(band);
+
+  // Save it with chrome API
+  storage.set({ 'bands':musiqueueBands }, function(data) {
+    console.log('saved!');
+  });
 }
 
 // List the bands
 function listBands() {
-  list = JSON.parse(sessionStorage.getItem('musiqueueBands'));
-
-  console.log(list);
+  list = storage.get('bands', function(data) {
+    console.log(data);
+  });
 }
 
 // Events    =============================
