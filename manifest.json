@@ -16,23 +16,19 @@
   "browser_action": {
     "default_icon": "icons/19.png",
     "default_title": "Click to save your next music discovery!",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_popup": "src/browser_action/popup.html"
   },
+  "content_scripts": 
+    [
+      { 
+        "matches": ["http://*/*"],
+        "js": ["/src/inject/inject.js"]
+      }
+    ],
   "permissions": [
-    "bookmarks",
     "http://*/*",
     "https://*/*",
     "tabs",
     "storage"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
-    }
   ]
 }

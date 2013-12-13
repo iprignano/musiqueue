@@ -1,13 +1,51 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
+// Initialize storage and array containing bands
 
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
+var storage = chrome.storage.sync;
+var musiqueueBands = [];
 
+// Band Object Constructor
 
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
+function Band(name, url, photo) {
+  this.name  = name;
+  this.url   = url;
+  this.photo = photo;
+}
+
+// Functions =============================
+
+// Create the band to save
+function createBand(name, url, photo) {
+  var band = new Band(name, url, photo);
+
+  saveBand(band);
+}
+
+// Make it persistant
+function saveBand(band) {
+  // Push the new record to the Array
+  musiqueueBands.push(band);
+
+  // Save it with chrome API
+  storage.set({ 'bands':musiqueueBands }, function() {
+    console.log('saved!');
   });
+}
+
+// List the bands
+function listBands() {
+  storage.get('bands', function(data) {
+
+    bands = data.bands;
+
+    // Loop through the bands and print them
+    bands.map(function(band) {
+      console.log(band);
+
+      bandName  = band.name;
+      bandPhoto = band.photo;
+      bandUrl   = band.url;
+
+      $('#main-popup').append(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
+    });
+  });
+}
