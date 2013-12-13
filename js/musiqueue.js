@@ -35,13 +35,18 @@ function saveBand(band) {
 function listBands() {
   storage.get('bands', function(data) {
 
-    band = data.bands[0]
+    bands = data.bands;
 
-    bandName  = band.name;
-    bandPhoto = band.photo;
-    bandUrl   = band.url;
+    // Loop through the bands and print them
+    bands.map(function(band) {
+      console.log(band);
 
-    $('#main-popup').html(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
+      bandName  = band.name;
+      bandPhoto = band.photo;
+      bandUrl   = band.url;
+
+      $('#main-popup').append(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
+    });
   });
 }
 
