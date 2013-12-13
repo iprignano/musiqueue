@@ -25,18 +25,23 @@ function saveBand(band) {
   // Push the new record to the Array
   musiqueueBands.push(band);
 
-  console.log(band);
-
   // Save it with chrome API
-  storage.set({ 'bands':musiqueueBands }, function(data) {
+  storage.set({ 'bands':musiqueueBands }, function() {
     console.log('saved!');
   });
 }
 
 // List the bands
 function listBands() {
-  list = storage.get('bands', function(data) {
-    console.log(data);
+  storage.get('bands', function(data) {
+
+    band = data.bands[0]
+
+    bandName  = band.name;
+    bandPhoto = band.photo;
+    bandUrl   = band.url;
+
+    $('#main-popup').html(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
   });
 }
 
