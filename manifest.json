@@ -22,7 +22,7 @@
     [
       { 
         "matches": ["http://*/*"],
-        "js": ["/src/inject/inject.js"]
+        "js": ["/js/content_script.js"]
       }
     ],
   "permissions": [

@@ -1,1 +1,4 @@
-console.log('this is the content script part.');
+chrome.runtime.sendMessage({ 
+  method: "getDOM",
+  pill: "seeeeeee" 
+});

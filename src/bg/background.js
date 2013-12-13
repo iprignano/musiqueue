@@ -15,6 +15,19 @@ function Band(name, url, photo) {
 
 // Create the band to save
 function createBand(name, url, photo) {
+
+  // Inject it, doc, fast!
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.executeScript(tab.id, {file: "/js/content_script.js"}, function() { console.log('done'); });
+  });
+
+  // Add listener and retrieve the vars
+  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.method == "getDOM") {
+      console.log(request.pill);
+    }
+  });
+
   var band = new Band(name, url, photo);
 
   saveBand(band);
