@@ -24,7 +24,7 @@ function createBand(name, url, photo) {
   // Add listener and retrieve the vars
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.method == "getDOM") {
-      console.log(request.pill);
+      console.log(request.name);
     }
   });
 

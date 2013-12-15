@@ -3,5 +3,5 @@ var artistName = $.trim(rawName);
 
 chrome.runtime.sendMessage({ 
   method: "getDOM",
-  pill: artistName
+  name: artistName
 });
