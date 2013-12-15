@@ -1,12 +1,9 @@
 // Get stuff from DOM
 
-var artistName = getName();
-
+var artistName  = getName();
 var artistPhoto = getPhoto();
-
-var artistURL = window.location.href;
-
-var artistTags = getTags();
+var artistURL   = window.location.href;
+var artistTags  = getTags();
 
 // Send it to background.js
 
