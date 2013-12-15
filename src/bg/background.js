@@ -44,13 +44,23 @@ function createBand() {
 
   // Inject it, doc, fast!
   chrome.tabs.getSelected(null, function(tab) {
-    chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' }, function() { console.log('done'); });
+    chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' }, function() {});
   });
 
-  // Store the band in a var and save it
-  var band = new Band(artistName, artistURL, artistPhoto, artistTags); 
+  // Stupid integrity check. TODO: improve it
+  if (window.artistPhoto != undefined) {
 
-  saveBand(band);
+    // Store the band in a var and save it
+    var band = new Band(artistName, artistURL, artistPhoto, artistTags); 
+
+    saveBand(band);
+
+  } else {
+
+    console.log('no!');
+    return;
+
+  }
 }
 
 function saveBand(band) {
