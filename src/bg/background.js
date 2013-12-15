@@ -5,31 +5,41 @@ var musiqueueBands = [];
 
 // Band Object Constructor
 
-function Band(name, url, photo) {
+function Band(name, url, photo, tags) {
   this.name  = name;
   this.url   = url;
   this.photo = photo;
+  this.tags  = tags;
 }
+
+// Add listener and retrieve the vars
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.method == "getDOM") {
+    // Get stuff from page
+    console.log(request.name);
+    console.log(request.photo);
+    console.log(request.url);
+    console.log(request.tags);
+
+    artistName  = request.name;
+    artistPhoto = request.photo;
+    artistURL   = request.url;
+    artistTags  = request.tags;
+  }
+});
 
 // Functions =============================
 
 // Create the band to save
-function createBand(name, url, photo) {
+function createBand() {
 
   // Inject it, doc, fast!
   chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.executeScript(tab.id, {file: "/js/content_script.js"}, function() { console.log('done'); });
   });
 
-  // Add listener and retrieve the vars
-  chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.method == "getDOM") {
-      console.log(request.name);
-    }
-  });
-
   // Store the band in a var and save it
-  var band = new Band(name, url, photo);
+  var band = new Band(artistName, artistURL, artistPhoto, artistTags); 
 
   saveBand(band);
 }
