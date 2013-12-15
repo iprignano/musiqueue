@@ -28,6 +28,7 @@ function createBand(name, url, photo) {
     }
   });
 
+  // Store the band in a var and save it
   var band = new Band(name, url, photo);
 
   saveBand(band);
