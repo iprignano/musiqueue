@@ -1,3 +1,5 @@
+'use strict';
+
 // Get stuff from DOM
 
 var artistName  = getName();
@@ -8,7 +10,7 @@ var artistTags  = getTags();
 // Send it to background.js
 
 chrome.runtime.sendMessage({ 
-  method: "getDOM",
+  method: 'getDOM',
   name  : artistName,
   url   : artistURL,
   photo : artistPhoto,

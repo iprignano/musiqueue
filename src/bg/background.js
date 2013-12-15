@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Initialize chrome storage, array containing bands and global vars
 
@@ -21,7 +21,7 @@ function Band(name, url, photo, tags) {
 // Add listener and retrieve the vars
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.method == "getDOM") {
+  if (request.method === 'getDOM') {
     // Get stuff from page
 
     // Logging for debug purposes - REMOVE THAT
@@ -43,7 +43,7 @@ function createBand() {
 
   // Inject it, doc, fast!
   chrome.tabs.getSelected(null, function(tab) {
-    chrome.tabs.executeScript(tab.id, { file: "/js/content_script.js" }, function() { console.log('done'); });
+    chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' }, function() { console.log('done'); });
   });
 
   // Store the band in a var and save it
