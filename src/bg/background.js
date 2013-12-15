@@ -1,7 +1,11 @@
-// Initialize storage and array containing bands
+// Initialize storage, array containing bands, vars
 
 var storage = chrome.storage.sync;
 var musiqueueBands = [];
+var artistName,
+    artistPhoto,
+    artistURL,
+    artistTags;
 
 // Band Object Constructor
 
