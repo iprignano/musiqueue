@@ -1,7 +1,6 @@
 // Get Background page reference
 
 var BGPage = chrome.extension.getBackgroundPage();
-var bands;
 
 // Bind clicks to background functions
 
