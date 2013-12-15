@@ -1,3 +1,5 @@
+"use strict";
+
 // Initialize chrome storage, array containing bands and global vars
 
 var storage = chrome.storage.sync;
@@ -55,7 +57,7 @@ function saveBand(band) {
   musiqueueBands.push(band);
 
   // Save it with chrome API
-  storage.set({ 'bands':musiqueueBands }, function() {
+  storage.set({ 'bands': musiqueueBands }, function() {
     console.log('saved!');
   });
 }
@@ -64,15 +66,15 @@ function listBands() {
   // Retrieve data from storage
   storage.get('bands', function(data) {
 
-    bands = data.bands;
+    var bands = data.bands;
 
     // Loop through the bands and print them
     bands.map(function(band) {
       console.log(band);
 
-      bandName  = band.name;
-      bandPhoto = band.photo;
-      bandUrl   = band.url;
+      var bandName  = band.name;
+      var bandPhoto = band.photo;
+      var bandUrl   = band.url;
 
       $('#main-popup').append(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
     });
