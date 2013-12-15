@@ -1,6 +1,7 @@
 // Get Background page reference
 
 var BGPage = chrome.extension.getBackgroundPage();
+var bands;
 
 // Bind clicks to background functions
 
@@ -9,5 +10,21 @@ $('#save').on('click', function() {
 });
 
 $('#browse').on('click', function() {
-  BGPage.listBands();
+  BGPage.getBands(function() {
+
+    var bands = BGPage.bands;
+
+    console.dir(bands);
+
+    bands.map(function(band) {
+      console.log(band);
+
+      console.log(band.name);
+      console.log(band.photo);
+      console.log(band.url);
+      console.log(band.tags);
+
+      // $('#main-popup').append(band.name + '<br />' + band.photo + '<br />' + band.url);
+    });
+  });
 });

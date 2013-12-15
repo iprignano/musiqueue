@@ -7,7 +7,8 @@ var musiqueueBands = [];
 var artistName,
     artistPhoto,
     artistURL,
-    artistTags;
+    artistTags,
+    bands;
 
 // Band Object Constructor
 
@@ -25,10 +26,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     // Get stuff from page
 
     // Logging for debug purposes - REMOVE THAT
-    console.log(request.name);
-    console.log(request.photo);
-    console.log(request.url);
-    console.log(request.tags);
+    // console.log(request.name);
+    // console.log(request.photo);
+    // console.log(request.url);
+    // console.log(request.tags);
 
     artistName  = request.name;
     artistPhoto = request.photo;
@@ -62,21 +63,14 @@ function saveBand(band) {
   });
 }
 
-function listBands() {
+function getBands(callback) {
   // Retrieve data from storage
   storage.get('bands', function(data) {
 
-    var bands = data.bands;
+    bands = data.bands;
+    // console.log(bands);
 
-    // Loop through the bands and print them
-    bands.map(function(band) {
-      console.log(band);
-
-      var bandName  = band.name;
-      var bandPhoto = band.photo;
-      var bandUrl   = band.url;
-
-      $('#main-popup').append(bandName + '<br />' + bandPhoto + '<br />' + bandUrl);
-    });
+    // Execute callback
+    callback();
   });
 }
