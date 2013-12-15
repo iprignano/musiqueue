@@ -1,5 +1,8 @@
 // Get Background page reference
+
 var BGPage = chrome.extension.getBackgroundPage();
+
+// Bind clicks to background functions
 
 $('#save').on('click', function() {
   BGPage.createBand();

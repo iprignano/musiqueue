@@ -1,4 +1,4 @@
-// Initialize storage, array containing bands, vars
+// Initialize chrome storage, array containing bands and global vars
 
 var storage = chrome.storage.sync;
 var musiqueueBands = [];
@@ -17,9 +17,12 @@ function Band(name, url, photo, tags) {
 }
 
 // Add listener and retrieve the vars
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.method == "getDOM") {
     // Get stuff from page
+
+    // Logging for debug purposes - REMOVE THAT
     console.log(request.name);
     console.log(request.photo);
     console.log(request.url);
@@ -32,14 +35,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   }
 });
 
-// Functions =============================
+// Band-related functions
 
-// Create the band to save
 function createBand() {
 
   // Inject it, doc, fast!
   chrome.tabs.getSelected(null, function(tab) {
-    chrome.tabs.executeScript(tab.id, {file: "/js/content_script.js"}, function() { console.log('done'); });
+    chrome.tabs.executeScript(tab.id, { file: "/js/content_script.js" }, function() { console.log('done'); });
   });
 
   // Store the band in a var and save it
@@ -48,7 +50,6 @@ function createBand() {
   saveBand(band);
 }
 
-// Make it persistant
 function saveBand(band) {
   // Push the new record to the Array
   musiqueueBands.push(band);
@@ -59,8 +60,8 @@ function saveBand(band) {
   });
 }
 
-// List the bands
 function listBands() {
+  // Retrieve data from storage
   storage.get('bands', function(data) {
 
     bands = data.bands;

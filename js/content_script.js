@@ -9,6 +9,7 @@ var artistURL = window.location.href;
 var artistTags = getTags();
 
 // Send it to background.js
+
 chrome.runtime.sendMessage({ 
   method: "getDOM",
   name  : artistName,
@@ -31,6 +32,7 @@ function getPhoto() {
 function getTags() {
   var tags = [];
 
+  // Get only the first three tags
   $('.global-tags ul.tags li:lt(3) a').each(function() {
     tags.push($(this).text());
   });
