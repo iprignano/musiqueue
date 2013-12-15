@@ -13,8 +13,6 @@ $('#browse').on('click', function() {
 
     var bands = BGPage.bands;
 
-    console.dir(bands);
-
     bands.map(function(band) {
       console.log(band);
 
@@ -23,7 +21,7 @@ $('#browse').on('click', function() {
       console.log(band.url);
       console.log(band.tags);
 
-      // $('#main-popup').append(band.name + '<br />' + band.photo + '<br />' + band.url);
+      $('#main-popup').append(band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br />');
     });
   });
 });

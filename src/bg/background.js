@@ -59,16 +59,16 @@ function saveBand(band) {
 
   // Save it with chrome API
   storage.set({ 'bands': musiqueueBands }, function() {
-    console.log('saved!');
+    console.log('saved ' + band.name);
   });
 }
 
 function getBands(callback) {
-  // Retrieve data from storage
+  // Retrieve all the saved bands
   storage.get('bands', function(data) {
 
+    // Store bands objects in a var for later use (in popup.js)
     bands = data.bands;
-    // console.log(bands);
 
     // Execute callback
     callback();
