@@ -21,7 +21,12 @@ $('#browse').on('click', function() {
       console.log(band.url);
       console.log(band.tags);
 
-      $('#main-popup').append(band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br />');
+      $('#main-popup').append('<a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br />');
     });
   });
+});
+
+$(document).on('click', '#delete', function() {
+  console.log('ssss');
+  BGPage.removeBand('Autechre');
 });

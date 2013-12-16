@@ -84,3 +84,32 @@ function getBands(callback) {
     callback();
   });
 }
+
+function removeBand(band) {
+  console.log('sto qua');
+
+  var indexToRemove;
+
+  // Retrieve all the saved bands
+  storage.get('bands', function(data) {
+
+    bands = data.bands;
+
+    // Search for the band index
+    $.map(bands, function(obj, index) {
+      if(obj.name == band) {
+
+        indexToRemove = index;
+        return indexToRemove;
+      }
+    })
+
+    console.log('indextoremove is ' + indexToRemove);
+
+    // Remove it
+    storage.remove('Autechre', function(data) {
+      console.log('removed');
+      console.log(bands);
+    }); 
+  });
+}
