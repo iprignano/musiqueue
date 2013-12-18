@@ -21,12 +21,13 @@ $('#browse').on('click', function() {
       console.log(band.url);
       console.log(band.tags);
 
-      $('#main-popup').append('<a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br />');
+      $('#main-popup').append('<div id="band.name"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
     });
   });
 });
 
-$(document).on('click', '#delete', function() {
-  console.log('ssss');
+$(document).on('click', '#delete', function(event) {
+  event.preventDefault();
   BGPage.removeBand('Autechre');
+  $(this).parent().remove();
 });

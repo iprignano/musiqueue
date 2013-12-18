@@ -68,7 +68,7 @@ function saveBand(band) {
   musiqueueBands.push(band);
 
   // Save it with chrome API
-  storage.set({ 'bands': musiqueueBands }, function() {
+  storage.set({ bands: musiqueueBands }, function() {
     console.log('saved ' + band.name);
   });
 }
@@ -85,31 +85,29 @@ function getBands(callback) {
   });
 }
 
-function removeBand(band) {
-  console.log('sto qua');
-
+function removeBand(bandName) {
   var indexToRemove;
 
   // Retrieve all the saved bands
   storage.get('bands', function(data) {
-
-    bands = data.bands;
+    var bands = data.bands;
 
     // Search for the band index
-    $.map(bands, function(obj, index) {
-      if(obj.name == band) {
-
-        indexToRemove = index;
-        return indexToRemove;
+    for (var i = 0; i < bands.length; i++) {
+      var band = bands[i];
+      if (band.name === bandName) {
+        console.log(i);
+        bands.splice(i, 1);
+        break;
+      } else {
+        console.log(band);
       }
-    })
+    }
 
-    console.log('indextoremove is ' + indexToRemove);
-
-    // Remove it
-    storage.remove('Autechre', function(data) {
+    storage.set({ bands: bands }, function() {
       console.log('removed');
-      console.log(bands);
+      console.log('updated array is');
+      console.dir(bands);
     }); 
   });
 }
