@@ -86,8 +86,6 @@ function getBands(callback) {
 }
 
 function removeBand(bandName) {
-  var indexToRemove;
-
   // Retrieve all the saved bands
   storage.get('bands', function(data) {
     var bands = data.bands;
