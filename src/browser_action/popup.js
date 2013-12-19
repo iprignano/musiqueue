@@ -1,3 +1,5 @@
+'use strict';
+
 // Get Background page reference
 var BGPage = chrome.extension.getBackgroundPage();
 
