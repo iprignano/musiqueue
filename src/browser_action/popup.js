@@ -1,33 +1,25 @@
 // Get Background page reference
-
 var BGPage = chrome.extension.getBackgroundPage();
 
 // Bind clicks to background functions
-
 $('#save').on('click', function() {
   BGPage.createBand();
 });
 
 $('#browse').on('click', function() {
   BGPage.getBands(function() {
-
     var bands = BGPage.bands;
 
     bands.map(function(band) {
-      console.log(band);
-
-      console.log(band.name);
-      console.log(band.photo);
-      console.log(band.url);
-      console.log(band.tags);
-
-      $('#main-popup').append('<div id="band.name"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
+      $('#main-popup').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
     });
   });
 });
 
 $(document).on('click', '#delete', function(event) {
   event.preventDefault();
-  BGPage.removeBand('Autechre');
+  var bandToRemove = $(this).parent().attr('data-band');
+
+  BGPage.removeBand(bandToRemove);
   $(this).parent().remove();
 });
