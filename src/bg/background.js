@@ -29,8 +29,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 // Band-related functions
 function createBand() {
-
-  // Inject it, doc, fast!
   chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' }, function() {});
   });
@@ -46,7 +44,6 @@ function createBand() {
 }
 
 function saveBand(band) {
-  // Push the new record to the Array
   musiqueueBands.push(band);
 
   storage.set({ bands: musiqueueBands }, function() {
@@ -56,7 +53,7 @@ function saveBand(band) {
 
 function getBands(callback) {
   storage.get('bands', function(data) {
-    // Store bands objects in a var for later use (in popup.js)
+
     bands = data.bands;
 
     callback();
@@ -67,7 +64,6 @@ function removeBand(bandName) {
   storage.get('bands', function(data) {
     var bands = data.bands;
 
-    // Search for the band index
     for (var i = 0; i < bands.length; i++) {
       var band = bands[i];
       if (band.name === bandName) {
