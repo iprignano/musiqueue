@@ -44,10 +44,32 @@ function createBand() {
 }
 
 function saveBand(band) {
-  musiqueueBands.push(band);
+  var duplicate = false;
+  var bandName = band.name;
 
-  storage.set({ bands: musiqueueBands }, function() {
-    console.log('saved ' + band.name);
+  storage.get('bands', function(data) {
+    var bands = data.bands;
+    console.log('im here');
+
+    for (var i = 0; i < bands.length; i++) {
+      var band = bands[i];
+      if (band.name === bandName) {
+        duplicate = true;
+        break;
+      } else {
+        console.log(band);
+      }
+    }
+
+    if (duplicate) {
+      console.log('this band is already there!');
+    } else {
+      musiqueueBands.push(band);
+
+      storage.set({ bands: musiqueueBands }, function() {
+        console.log('saved ' + band.name);
+      });
+    }
   });
 }
 
