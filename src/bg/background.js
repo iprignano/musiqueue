@@ -49,11 +49,11 @@ function saveBand(band) {
 
   storage.get('bands', function(data) {
     var bands = data.bands;
-    console.log('im here');
+    console.log(data);
 
     for (var i = 0; i < bands.length; i++) {
-      var band = bands[i];
-      if (band.name === bandName) {
+      var Band = bands[i];
+      if (Band.name === bandName) {
         duplicate = true;
         break;
       } else {
