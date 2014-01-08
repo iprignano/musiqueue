@@ -92,11 +92,20 @@ a:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0,0,0,.8);
   z-index: 2;
-  padding-top: 60px;
+  padding-top: 40px;
   color: #fff;
   text-align: center;
+}
+
+.overlay a {
+  text-decoration: none;
+  background-color: #E31B23;
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: #fff;
+  display: inline-block;
 }
 
 /* List bands */
