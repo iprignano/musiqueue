@@ -13,7 +13,7 @@ $('#browse').on('click', function() {
     var bands = BGPage.bands;
 
     bands.map(function(band) {
-      $('#main-popup #list').html('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
+      $('#main-popup #list').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
     });
   });
 });

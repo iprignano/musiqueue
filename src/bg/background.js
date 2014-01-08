@@ -49,7 +49,6 @@ function saveBand(band) {
 
   storage.get('bands', function(data) {
     var bands = data.bands;
-    console.log(data);
 
     for (var i = 0; i < bands.length; i++) {
       var Band = bands[i];
@@ -57,7 +56,7 @@ function saveBand(band) {
         duplicate = true;
         break;
       } else {
-        console.log(band);
+        // Valid band
       }
     }
 
@@ -92,7 +91,7 @@ function removeBand(bandName) {
         bands.splice(i, 1);
         break;
       } else {
-        console.log(band);
+        // Nuthin'
       }
     }
 
