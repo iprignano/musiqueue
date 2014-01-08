@@ -47,7 +47,6 @@ a:focus {
 #save-band {
   background-color: #E31B23;
   color: #fafafa;
-  padding: 10px;
   font-weight: 400;
   text-align: center;
   border-radius: 2px;
@@ -55,11 +54,13 @@ a:focus {
 
 #save-band a {
   color: #fafafa;
+  width: 100%;
+  padding: 10px 0;
   text-shadow: 0 1px 0 rgba(0,0,0,.4);
+  display: block;
 }
 
 #list-bands {
-  padding: 10px;
   font-weight: 400;
   text-align: center;
   border-radius: 2px;
@@ -77,6 +78,9 @@ a:focus {
 #list-bands a {
   color: #fafafa;
   text-shadow: 0 1px 0 rgba(0,0,0,.4);
+  width: 100%;
+  padding: 10px 0;
+  display: block;
 }
 
 /* Overlays */
