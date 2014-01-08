@@ -101,11 +101,16 @@ a:focus {
   display: none;
 }
 
+.band {
+  width: 100%;
+  background-color: #eaeaea;
+}
+
 .band-img {
   width: 140px;
   height: 140px;
-  float: left;
   overflow: hidden;
+  float: left;
 }
 
 .band-img img {

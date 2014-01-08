@@ -15,10 +15,14 @@ $('#browse').on('click', function() {
 
   BGPage.getBands(function() {
     var bands = BGPage.bands;
-
-    $.each(bands, function(key, band) {
-      $('#list').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a> <h2>' + band.name + '</h2> <div class="band-img"><img src="' + band.photo + '" /></div> <h3>' + band.url + '</h3> <h4>' + band.tags + '</div>');
-    });
+    
+    if (bands.length > 0) {
+      $.each(bands, function(key, band) {
+        $('#list').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a> <h2>' + band.name + '</h2> <div class="band-img"><img src="' + band.photo + '" /></div> <h3>' + band.url + '</h3> <h4>' + band.tags + '</div>');
+      });
+    } else {
+      $('#list').append('Yarr, nothing here!');
+    }
 
     setTimeout(function() { $('#list').fadeIn(); }, 220);
   });
