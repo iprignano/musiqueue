@@ -1,5 +1,9 @@
 /* General */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -40,6 +44,10 @@ a:active,
 a:hover,
 a:focus {
   outline: 0;
+}
+
+.clearfix {
+  clear: both;
 }
 
 /* Actions */
@@ -117,13 +125,23 @@ a:focus {
 .band {
   width: 100%;
   background-color: #eaeaea;
+  margin: 10px 0;
+}
+
+.band-left {
+  width: 150px;
+  float: left;
+}
+
+.band-right {
+  width: 220px;
+  float: left;
 }
 
 .band-img {
   width: 140px;
   height: 140px;
   overflow: hidden;
-  float: left;
 }
 
 .band-img img {
