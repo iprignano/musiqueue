@@ -1,19 +1,66 @@
+/* General */
+
 body {
   background-color: #fafafa;
-  font-family: 'Helvetica', sans-serif;
-}
-
-h1 {
-  font-size: 20px;
-  font-weight: 300;
-  border-bottom: 1px solid #ccc;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 #main-popup {
   width: 400px;
 }
 
+h1 {
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eaeaea;
+}
+
 p {
   font-size: 16px;
   font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Actions */
+
+#save-band {
+  background-color: #E31B23;
+  text-transform: uppercase;
+  
+  color: #fafafa;
+  padding: 10px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 2px;
+}
+
+#save-band a {
+  color: #fafafa;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+
+#list-bands {
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 2px;
+
+  background: #3F3F3F;
+  background-image: linear-gradient(#4B4B4B, #333);
+  background-image: -o-linear-gradient(#4b4b4b, #333333);
+  background-image: -ms-linear-gradient(#4b4b4b, #333333);
+  background-image: -moz-linear-gradient(#4b4b4b, #333333);
+  background-image: -webkit-linear-gradient(#4B4B4B, #333);
+  border-bottom: 1px solid #000;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#list-bands a {
+  color: #fafafa;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
 }
