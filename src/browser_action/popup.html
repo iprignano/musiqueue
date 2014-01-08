@@ -6,14 +6,28 @@
   </head>
 
   <body>
+    <div id="container">
 
-    <div id="main-popup">
       <h1>Musiqueue</h1>
-      <p id="save-band"><a id="save" href="#">Save this band</a></p>
-      <p id="list-bands"><a id="browse" href="#">Browse your saved bands</a></p>
+      <div id="main">
+        <p id="save-band"><a id="save" href="#">Save this band</a></p>
+        <p id="list-bands"><a id="browse" href="#">Browse your saved bands</a></p>
 
-      <div id="list"></div>
+        <div class="overlay saved">
+          Band saved successfully!
+
+          <p><a href="#" id="close-overlay">Ok</a></p>
+        </div>
+        <!-- end overlay saved -->
+      </div>
+      <!-- end main -->
+
+      <div id="list">
+        
+      </div>
+      <!-- end list -->
     </div>
+    <!-- end container -->
 
     <script src="/js/jquery.min.js" type="text/javascript"></script>
     <script src="popup.js" type="text/javascript"></script>

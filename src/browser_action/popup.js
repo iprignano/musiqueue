@@ -6,16 +6,26 @@ var BGPage = chrome.extension.getBackgroundPage();
 // Bind clicks to background functions
 $('#save').on('click', function() {
   BGPage.createBand();
+
+  $('.overlay.saved').fadeIn();
 });
 
 $('#browse').on('click', function() {
+  $('#main').fadeOut(200);
+
   BGPage.getBands(function() {
     var bands = BGPage.bands;
 
-    bands.map(function(band) {
-      $('#main-popup #list').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a><br />' + band.name + '<br />' + band.photo + '<br />' + band.url + '<br /><br /></div> ');
+    $.each(bands, function(key, band) {
+      $('#list').append('<div class="band" data-band="' + band.name + '"><a href="#" id="delete">Delete</a> <h2>' + band.name + '</h2> <div class="band-img"><img src="' + band.photo + '" /></div> <h3>' + band.url + '</h3> <h4>' + band.tags + '</div>');
     });
+
+    setTimeout(function() { $('#list').fadeIn(); }, 220);
   });
+});
+
+$('#close-overlay').on('click', function() {
+  $(this).parents('.overlay').fadeOut();
 });
 
 $(document).on('click', '#delete', function(event) {
