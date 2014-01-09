@@ -91,7 +91,8 @@ function removeBand(bandName) {
         bands.splice(i, 1);
         break;
       } else {
-        // Nuthin'
+        console.log(band.name);
+        console.log(bandName);
       }
     }
 

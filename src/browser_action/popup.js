@@ -55,8 +55,8 @@ $('#back').on('click', function() {
 
 $(document).on('click', '#delete', function(event) {
   event.preventDefault();
-  var bandToRemove = $(this).parent().attr('data-band');
+  var bandToRemove = $(this).parents('.band').attr('data-band');
 
   BGPage.removeBand(bandToRemove);
-  $(this).parent().remove();
+  $(this).parents('.band').fadeOut();
 });
