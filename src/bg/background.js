@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 // Band-related functions
 function createBand() {
   chrome.tabs.getSelected(null, function(tab) {
-    chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' }, function() {});
+    chrome.tabs.executeScript(tab.id, { file: '/js/content_script.js' });
   });
 
   // Stupid integrity check. TODO: improve it
