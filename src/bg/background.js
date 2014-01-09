@@ -34,7 +34,7 @@ function createBand() {
   });
 
   // Stupid integrity check. TODO: improve it
-  if (window.artistPhoto != undefined) {
+  if (window.artistPhoto !== undefined) {
     var band = new Band(artistName, artistURL, artistPhoto, artistTags); 
     saveBand(band);
   } else {
