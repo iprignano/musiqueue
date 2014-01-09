@@ -36,5 +36,5 @@ function getTags() {
     tags.push($(this).text());
   });
 
-  return JSON.stringify(tags);
+  return tags;
 }

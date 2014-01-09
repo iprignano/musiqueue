@@ -18,7 +18,7 @@ $('#browse').on('click', function() {
     
     if (bands.length > 0) {
       $.each(bands, function(key, band) {
-        $('#list').append(
+        $('#bands-list').append(
           '<div class="band" data-band="' + band.name + '"> \
             <div class="band-left"> \
               <a href="#" id="delete">Delete</a> \
@@ -27,7 +27,7 @@ $('#browse').on('click', function() {
             <div class="band-right"> \
               <h2>' + band.name + '</h2> \
               <h3>' + band.url + '</h3> \
-              <h4>' + band.tags + '</h4> \
+              <h4>' + band.tags.join(' ') + '</h4> \
             </div> \
             <div class="clearfix"></div> \
           </div>');
@@ -42,6 +42,15 @@ $('#browse').on('click', function() {
 
 $('#close-overlay').on('click', function() {
   $(this).parents('.overlay').fadeOut();
+});
+
+$('#back').on('click', function() {
+  $('#list').fadeOut(200);
+
+  setTimeout(function() { 
+    $('#main').fadeIn();
+    $('#bands-list').html(''); 
+  }, 220);
 });
 
 $(document).on('click', '#delete', function(event) {
