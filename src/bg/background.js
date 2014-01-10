@@ -55,8 +55,6 @@ function saveBand(band) {
       if (Band.name === bandName) {
         duplicate = true;
         break;
-      } else {
-        // Valid band
       }
     }
 
@@ -92,9 +90,6 @@ function removeBand(bandName) {
       if (band.name === bandName) {
         bands.splice(i, 1);
         break;
-      } else {
-        console.log(band.name);
-        console.log(bandName);
       }
     }
 
@@ -125,9 +120,6 @@ function messageOverlay(result) {
         break;
       case 'notvalid':
         overlay.find('#notvalid').fadeIn();
-        break;
-      case 'removed':
-        overlay.find('#removed').fadeIn();
         break;
       default:
         overlay.find('#unknown').fadeIn();
