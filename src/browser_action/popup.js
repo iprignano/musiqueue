@@ -39,13 +39,12 @@ function populateBandList() {
       $('#bands-list').append(
         '<div class="band" data-band="' + band.name + '"> \
           <div class="band-left"> \
-            <a href="#" id="delete">Delete</a> \
+            <a href="#" class="delete-band">Delete</a> \
             <div class="band-img"><img src="' + band.photo + '" /></div> \
           </div> \
           <div class="band-right"> \
-            <h2>' + band.name + '</h2> \
-            <h3>' + band.url + '</h3> \
-            <h4>' + band.tags.join(' ') + '</h4> \
+            <h2 class="band-name">' + band.name + '</h2> \
+            <h4 class="band-tags"><span>' + band.tags.join('</span> <span>') + '</span></h4> \
           </div> \
           <div class="clearfix"></div> \
         </div>');
@@ -75,6 +74,6 @@ $('#back').on('click', function() {
   showMainMenu();
 });
 
-$(document).on('click', '#delete', function(event) {
+$(document).on('click', '.delete-band', function(event) {
   deleteBand(event);
 });

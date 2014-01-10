@@ -11,7 +11,7 @@ body {
 
 body {
   background-color: #fafafa;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
 }
 
 #container {
@@ -122,32 +122,70 @@ a:focus {
 
 /* List bands */
 
+#back a {
+  color: #333;
+}
+
 #list {
   display: none;
 }
 
 .band {
+  position: relative;
   width: 100%;
   background-color: #eaeaea;
   margin: 10px 0;
+  max-height: 120px;
 }
 
 .band-left {
-  width: 150px;
+  width: 120px;
+  margin-right: 20px;
   float: left;
 }
 
 .band-right {
-  width: 220px;
+  width: 240px;
   float: left;
 }
 
+.band-name {
+  font-size: 18px;
+  margin: 10px 0;
+  max-width: 240px;
+}
+
+.band-tags {
+  font-size: 13px;
+  font-weight: 200;
+  margin: 0;
+}
+
+.band-tags span {
+  background-color: green;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  line-height: 2.5em;
+}
+
 .band-img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   overflow: hidden;
 }
 
 .band-img img {
   width: 160px;
+}
+
+.delete-band {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  text-indent: -999999px;
+  background: transparent url('../images/trash.png') no-repeat;
+  background-size: contain;
+  bottom: 10px;
+  right: 10px;
 }
