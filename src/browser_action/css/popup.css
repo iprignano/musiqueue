@@ -155,6 +155,10 @@ a:focus {
   max-width: 240px;
 }
 
+.band-name a {
+  color: #000;
+}
+
 .band-tags {
   font-size: 13px;
   font-weight: 200;

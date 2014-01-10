@@ -40,10 +40,14 @@ function populateBandList() {
         '<div class="band" data-band="' + band.name + '"> \
           <div class="band-left"> \
             <a href="#" class="delete-band">Delete</a> \
-            <div class="band-img"><img src="' + band.photo + '" /></div> \
+            <div class="band-img"> \
+              <a href="' + band.url + '"> \
+                <img src="' + band.photo + '" /></div> \
+              </a> \
+            </div> \
           </div> \
           <div class="band-right"> \
-            <h2 class="band-name">' + band.name + '</h2> \
+            <h2 class="band-name"><a href="' + band.url + '">' + band.name + '</a></h2> \
             <h4 class="band-tags"><span>' + band.tags.join('</span> <span>') + '</span></h4> \
           </div> \
           <div class="clearfix"></div> \
