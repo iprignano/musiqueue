@@ -126,6 +126,9 @@ function messageOverlay(result) {
       case 'notvalid':
         overlay.find('#notvalid').fadeIn();
         break;
+      case 'removed':
+        overlay.find('#removed').fadeIn();
+        break;
       default:
         overlay.find('#unknown').fadeIn();
         break;
