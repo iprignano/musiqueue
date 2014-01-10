@@ -97,6 +97,8 @@ function removeBand(bandName) {
       console.log('removed');
       console.log('updated array is');
       console.dir(bands);
+
+      musiqueueBands = bands;
     }); 
   });
 }
