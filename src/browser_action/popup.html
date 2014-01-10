@@ -15,8 +15,11 @@
         <p id="list-bands"><a id="browse" href="#">Browse your saved bands</a></p>
         <!-- actions -->
 
-        <div class="overlay saved">
-          Band saved successfully!
+        <div class="overlay">
+          <p class="message success" id="saved">Band saved successfully!</p>
+          <p class="message error" id="duplicate">You already have this band in your library.</p>
+          <p class="message error" id="notvalid">You're not on a valid artist page.</p>
+          <p class="message error" id="unknown">Unknown error occurred. Sorry!</p>
 
           <p><a href="#" id="close-overlay">Ok</a></p>
         </div>

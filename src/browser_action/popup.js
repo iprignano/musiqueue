@@ -6,8 +6,6 @@ var BGPage = chrome.extension.getBackgroundPage();
 // Bind clicks to background functions
 $('#save').on('click', function() {
   BGPage.createBand();
-
-  $('.overlay.saved').fadeIn();
 });
 
 $('#browse').on('click', function() {
@@ -41,6 +39,7 @@ $('#browse').on('click', function() {
 });
 
 $('#close-overlay').on('click', function() {
+  $(this).parent().siblings('.message').fadeOut();
   $(this).parents('.overlay').fadeOut();
 });
 

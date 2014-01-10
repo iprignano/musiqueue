@@ -116,6 +116,10 @@ a:focus {
   display: inline-block;
 }
 
+.message {
+  display: none;
+}
+
 /* List bands */
 
 #list {

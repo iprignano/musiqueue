@@ -38,7 +38,7 @@ function createBand() {
     var band = new Band(artistName, artistURL, artistPhoto, artistTags); 
     saveBand(band);
   } else {
-    console.log('no!');
+    messageOverlay('notvalid');
     return;
   }
 }
@@ -62,11 +62,13 @@ function saveBand(band) {
 
     if (duplicate) {
       console.log('this band is already there!');
+      messageOverlay('duplicate');
     } else {
       musiqueueBands.push(band);
 
       storage.set({ bands: musiqueueBands }, function() {
         console.log('saved ' + band.name);
+        messageOverlay('success');
       });
     }
   });
@@ -102,4 +104,31 @@ function removeBand(bandName) {
       console.dir(bands);
     }); 
   });
+}
+
+// Popup DOM helper function
+function messageOverlay(result) {
+  var views = chrome.extension.getViews({ type: "popup" });
+  for (var i = 0; i < views.length; i++) {
+    
+    var container = views[i].document.getElementById('container');
+    var overlay   = $(container).find('.overlay');
+
+    overlay.fadeIn();
+
+    switch (result) {
+      case 'success':
+        overlay.find('#saved').fadeIn();
+        break;
+      case 'duplicate':
+        overlay.find('#duplicate').fadeIn();
+        break;
+      case 'notvalid':
+        overlay.find('#notvalid').fadeIn();
+        break;
+      default:
+        overlay.find('#unknown').fadeIn();
+        break;
+    }
+  }
 }
