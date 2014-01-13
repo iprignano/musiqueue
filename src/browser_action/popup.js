@@ -41,13 +41,13 @@ function populateBandList() {
           <div class="band-left"> \
             <a href="#" class="delete-band">Delete</a> \
             <div class="band-img"> \
-              <a href="' + band.url + '"> \
+              <a class="gotoband" href="' + band.url + '"> \
                 <img src="' + band.photo + '" /> \
               </a> \
             </div> \
           </div> \
           <div class="band-right"> \
-            <h2 class="band-name"><a href="' + band.url + '">' + band.name + '</a></h2> \
+            <h2 class="band-name"><a class="gotoband" href="' + band.url + '">' + band.name + '</a></h2> \
             <h4 class="band-tags"><span>' + band.tags.join('</span> <span>') + '</span></h4> \
           </div> \
           <div class="clearfix"></div> \
@@ -56,6 +56,13 @@ function populateBandList() {
   } else {
     $('#list').append('Yarr, nothing here!');
   }
+}
+
+function goToBandPage(bandUrl) {
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.update(tab.id, { url: bandUrl });
+    console.log('seee');
+  });
 }
 
 // Event binding
@@ -76,6 +83,11 @@ $('#close-overlay').on('click', function() {
 
 $('#back').on('click', function() {
   showMainMenu();
+});
+
+$(document).on('click', '.gotoband', function(event) {
+  var bandUrl = $(event.currentTarget).attr('href');
+  goToBandPage(bandUrl);
 });
 
 $(document).on('click', '.delete-band', function(event) {
