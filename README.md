@@ -17,5 +17,6 @@ Musiqueue is released under a GNU general public license and it's completely fre
 Changelog
 ---
 
+* **0.3** - Bug fixing, added capability to browse the band page clicking on its name. 
 * **0.2** - Basic save/list functionality. 
 
