@@ -166,11 +166,12 @@ a:focus {
 }
 
 .band-tags span {
+  display: inline-block;
   background-color: green;
   color: #fff;
   padding: 5px;
   border-radius: 3px;
-  line-height: 2.5em;
+  margin-bottom: 5px;
 }
 
 .band-img {

@@ -42,7 +42,7 @@ function populateBandList() {
             <a href="#" class="delete-band">Delete</a> \
             <div class="band-img"> \
               <a href="' + band.url + '"> \
-                <img src="' + band.photo + '" /></div> \
+                <img src="' + band.photo + '" /> \
               </a> \
             </div> \
           </div> \
