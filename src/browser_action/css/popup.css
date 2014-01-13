@@ -146,6 +146,7 @@ a:focus {
 
 .band-right {
   width: 240px;
+  max-height: 105px;
   float: left;
   padding-right: 15px;
 }

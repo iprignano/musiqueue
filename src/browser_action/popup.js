@@ -6,6 +6,7 @@ var BGPage = chrome.extension.getBackgroundPage();
 // Functions
 function showBandList() {
   $('#main').fadeOut(200);
+
   setTimeout(function() { $('#list').fadeIn(); }, 220);
 }
 
@@ -61,7 +62,6 @@ function populateBandList() {
 function goToBandPage(bandUrl) {
   chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.update(tab.id, { url: bandUrl });
-    console.log('seee');
   });
 }
 
@@ -72,7 +72,7 @@ $('#save').on('click', function() {
 
 $('#browse').on('click', function() {
   BGPage.getBands(function() {
-    populateBandList();    
+    populateBandList();
     showBandList();
   });
 });
