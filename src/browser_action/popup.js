@@ -38,21 +38,21 @@ function populateBandList() {
   if (bands.length > 0) {
     $.each(bands, function(key, band) {
       $('#bands-list').append(
-        '<div class="band" data-band="' + band.name + '"> \
-          <div class="band-left"> \
+        '<article class="band" data-band="' + band.name + '"> \
+          <section class="band-left"> \
             <a href="#" class="delete-band">Delete</a> \
-            <div class="band-img"> \
+            <figure class="band-img"> \
               <a class="gotoband" href="' + band.url + '"> \
                 <img src="' + band.photo + '" /> \
               </a> \
-            </div> \
-          </div> \
-          <div class="band-right"> \
+            </figure> \
+          </section> \
+          <section class="band-right"> \
             <h2 class="band-name"><a class="gotoband" href="' + band.url + '">' + band.name + '</a></h2> \
             <h4 class="band-tags"><span>' + band.tags.join('</span> <span>') + '</span></h4> \
-          </div> \
+          </section> \
           <div class="clearfix"></div> \
-        </div>');
+        </article>');
     });
   } else {
     $('#list').append('Yarr, nothing here!');

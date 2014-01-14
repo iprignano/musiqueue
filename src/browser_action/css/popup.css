@@ -179,6 +179,7 @@ a:focus {
 .band-img {
   width: 120px;
   height: 120px;
+  margin: 0;
   overflow: hidden;
 }
 
