@@ -1,3 +1,26 @@
+/* Fonts */
+
+@font-face {
+  font-family: Abel;
+  src: url('../fonts/Abel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Quattrocento;
+  src: url('../fonts/QuattrocentoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: QuattrocentoBold;
+  src: url('../fonts/QuattrocentoSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General */
 
 * {
@@ -11,7 +34,7 @@ body {
 
 body {
   background-color: #fafafa;
-  font-family: "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
+  font-family: 'Quattrocento', Arial, Helvetica, Verdana, sans-serif;
 }
 
 #container {
@@ -23,6 +46,7 @@ body {
 }
 
 h1 {
+  font-family: 'Abel';
   font-size: 18px;
   font-weight: 400;
   text-transform: uppercase;
@@ -33,7 +57,7 @@ h1 {
 p {
   font-size: 14px;
   font-weight: 300;
-  font-family: "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
+  font-family: 'Quattrocento', Arial, Helvetica, Verdana, sans-serif;
 }
 
 a {
@@ -58,6 +82,7 @@ a:focus {
   font-weight: 400;
   text-align: center;
   border-radius: 2px;
+  text-transform: uppercase;
 }
 
 #save-band a {
@@ -72,6 +97,7 @@ a:focus {
   font-weight: 400;
   text-align: center;
   border-radius: 2px;
+  text-transform: uppercase;
 
   background: #3F3F3F;
   background-image: linear-gradient(#4B4B4B, #333);
@@ -95,16 +121,21 @@ a:focus {
 
 .overlay {
   display: none;
+
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+
   background-color: rgba(0,0,0,.8);
   z-index: 2;
   padding-top: 40px;
   color: #fff;
   text-align: center;
+
+  font-family: 'Abel', Arial, sans-serif;
+  font-weight: 200;
 }
 
 .overlay a {
@@ -162,8 +193,9 @@ a:focus {
 }
 
 .band-tags {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 200;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -193,11 +225,16 @@ a:focus {
 
 .delete-band {
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   text-indent: -999999px;
   background: transparent url('../images/trash.png') no-repeat;
   background-size: contain;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
+  opacity: .2;
+}
+
+.delete-band:hover {
+  opacity: 1;
 }
