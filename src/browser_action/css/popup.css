@@ -183,9 +183,9 @@ a:focus {
 }
 
 .band-name {
-  font-size: 18px;
+  font-size: 19px;
   margin: 10px 0;
-  max-width: 240px;
+  max-width: 215px;
 }
 
 .band-name a {
