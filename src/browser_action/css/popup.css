@@ -183,8 +183,12 @@ a:focus {
   overflow: hidden;
 }
 
-.band-img img {
-  width: 160px;
+.portrait img {
+  width: 100%;
+}
+
+.landscape img {
+  height: 100%;
 }
 
 .delete-band {

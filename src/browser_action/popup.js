@@ -6,8 +6,10 @@ var BGPage = chrome.extension.getBackgroundPage();
 // Functions
 function showBandList() {
   $('#main').fadeOut(200);
-
-  setTimeout(function() { $('#list').fadeIn(); }, 220);
+  setTimeout(function() {
+    $('#list').fadeIn();
+    imageRatioCheck();
+  }, 220);
 }
 
 function showMainMenu() {
@@ -63,6 +65,21 @@ function goToBandPage(bandUrl) {
   chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.update(tab.id, { url: bandUrl });
   });
+}
+
+function imageRatioCheck() {
+  $('.band-img').each(function() {
+    var imgH = $(this).find('img').height();
+    var imgW = $(this).find('img').width();
+
+    if (imgW < imgH) {
+      $(this).addClass('portrait');
+    } else {
+      $(this).addClass('landscape');
+    }
+  });
+
+  console.log('fatto');
 }
 
 // Event binding

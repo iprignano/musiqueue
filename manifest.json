@@ -17,6 +17,7 @@
     "default_title": "Click to save your next music discovery!",
     "default_popup": "src/browser_action/popup.html"
   },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": 
     [
       { 
