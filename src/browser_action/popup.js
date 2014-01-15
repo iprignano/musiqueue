@@ -78,8 +78,6 @@ function imageRatioCheck() {
       $(this).addClass('landscape');
     }
   });
-
-  console.log('fatto');
 }
 
 // Event binding
