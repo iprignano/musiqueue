@@ -14,6 +14,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: OpenSansLight;
+  src: url('../fonts/OpenSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: OpenSansRegular;
+  src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General */
 
 * {
@@ -124,7 +138,7 @@ a:focus {
   color: #fff;
   text-align: center;
 
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'OpenSansLight', Arial, sans-serif;
   font-weight: 200;
 }
 
@@ -135,13 +149,31 @@ a:focus {
   padding: 10px 20px;
   color: #fff;
   display: inline-block;
+  font-family: 'Montserrat', Arial, Helvetica, Verdana, sans-serif;
 }
 
 .message {
+  font-family: 'OpenSansRegular', Arial, sans-serif;
   display: none;
 }
 
 /* List bands */
+
+#back {
+  background: url('../images/back-icon.png') no-repeat 3px 0;
+  padding-left: 20px;
+  opacity: .3;
+  font-size: 11px;
+  text-transform: uppercase;
+
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+#back:hover { 
+  opacity: 1;
+  background-position: 0 0;
+}
 
 #back a {
   color: #333;
