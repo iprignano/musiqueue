@@ -32,11 +32,12 @@ function deleteBand(event) {
   var bandToRemove = $(event.currentTarget).parents('.band').attr('data-band');
   BGPage.removeBand(bandToRemove);
 
-  $(event.currentTarget).parents('.band').fadeOut();
-  
-  if ($('#bands-list').html == '') {
-    $('#list .empty').show();
-  }
+  $(event.currentTarget).parents('.band').fadeOut(400, function() {
+    $(this).remove();
+    if (!$.trim( $('#bands-list').html()).length) {
+      $('#list .empty').delay(400).fadeIn();
+    }
+  });
 }
 
 function populateBandList() {

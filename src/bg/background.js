@@ -94,9 +94,9 @@ function removeBand(bandName) {
     }
 
     storage.set({ bands: bands }, function() {
-      console.log('removed');
-      console.log('updated array is');
-      console.dir(bands);
+      // console.log('removed');
+      // console.log('updated array is');
+      // console.dir(bands);
 
       musiqueueBands = bands;
     }); 
