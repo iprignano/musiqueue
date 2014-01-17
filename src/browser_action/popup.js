@@ -28,16 +28,22 @@ function closeOverlay() {
 
 function deleteBand(event) {
   event.preventDefault();
+  
   var bandToRemove = $(event.currentTarget).parents('.band').attr('data-band');
-
   BGPage.removeBand(bandToRemove);
+
   $(event.currentTarget).parents('.band').fadeOut();
+  
+  if ($('#bands-list').html == '') {
+    $('#list .empty').show();
+  }
 }
 
 function populateBandList() {
   var bands = BGPage.bands;
 
   if (bands.length > 0) {
+    $('#list .empty').hide();
     $.each(bands, function(key, band) {
       $('#bands-list').append(
         '<article class="band" data-band="' + band.name + '"> \
@@ -57,7 +63,7 @@ function populateBandList() {
         </article>');
     });
   } else {
-    $('#list').append('Yarr, nothing here!');
+    $('#list .empty').show();
   }
 }
 

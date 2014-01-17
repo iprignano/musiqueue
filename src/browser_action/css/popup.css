@@ -42,6 +42,7 @@ body {
 body {
   background-color: #fafafa;
   font-family: 'Montserrat', Arial, Helvetica, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 #container {
@@ -166,8 +167,8 @@ a:focus {
   font-size: 11px;
   text-transform: uppercase;
 
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 }
 
 #back:hover { 
@@ -181,6 +182,16 @@ a:focus {
 
 #list {
   display: none;
+}
+
+.empty {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.empty-list {
+  color: #D51007;
+  text-transform: uppercase;
 }
 
 .band {
@@ -224,8 +235,9 @@ a:focus {
 
 .band-tags span {
   display: inline-block;
-  background-color: green;
+  background-color: #0187C5;
   color: #fff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3);
   padding: 5px;
   border-radius: 3px;
   margin-bottom: 5px;
