@@ -1,6 +1,6 @@
 {
   "name": "Musiqueue",
-  "version": "0.5",
+  "version": "0.5.5",
   "manifest_version": 2,
   "description": "A Last.fm band pages bookmark tool to keep your next music discoveries in a safe, quiet place.",
   "icons": {
