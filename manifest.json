@@ -4,7 +4,8 @@
   "manifest_version": 2,
   "description": "A Last.fm band pages bookmark tool to keep your next music discoveries in a safe, quiet place.",
   "icons": {
-    "19": "icons/19.png"
+    "19": "icons/19.png",
+    "48": "icons/48.png"
   },
   "background": {
     "page": "src/bg/background.html",
