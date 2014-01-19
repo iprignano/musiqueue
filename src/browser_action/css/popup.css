@@ -220,6 +220,7 @@ a:focus {
   margin: 10px 0;
   max-width: 215px;
   font-weight: 200;
+  line-height: 1em;
 }
 
 .band-name a {
