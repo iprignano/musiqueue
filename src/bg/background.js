@@ -47,20 +47,23 @@ function saveBand(band) {
   var duplicate = false;
   var bandName = band.name;
 
-  if (band === null) {
-    storage.set({ bands: musiqueueBands }, function() {
-      console.log('I pushed an empty array');
-    });
-  }
-  
   storage.get('bands', function(data) {
     var bands = data.bands;
 
-    for (var i = 0; i < bands.length; i++) {
-      var Band = bands[i];
-      if (Band.name === bandName) {
-        duplicate = true;
-        break;
+    // console.log(bands);
+    // return
+
+    if (typeof(bands) === 'undefined') {
+      storage.set({ bands: musiqueueBands }, function() {
+        console.log('I pushed an empty array');
+      });
+    } else {
+      for (var i = 0; i < bands.length; i++) {
+        var Band = bands[i];
+        if (Band.name === bandName) {
+          duplicate = true;
+          break;
+        }
       }
     }
 
