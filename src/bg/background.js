@@ -1,7 +1,7 @@
 'use strict';
 
 // Initialize chrome storage, array containing bands and global vars
-var storage = chrome.storage.sync;
+var storage = chrome.storage.local;
 var musiqueueBands = [];
 var artistName,
     artistPhoto,
