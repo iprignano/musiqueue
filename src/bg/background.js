@@ -47,6 +47,12 @@ function saveBand(band) {
   var duplicate = false;
   var bandName = band.name;
 
+  if (band === null) {
+    storage.set({ bands: musiqueueBands }, function() {
+      console.log('I pushed an empty array');
+    });
+  }
+  
   storage.get('bands', function(data) {
     var bands = data.bands;
 
