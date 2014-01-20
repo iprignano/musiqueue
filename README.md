@@ -7,16 +7,15 @@ This came up to my mind when I found myself dealing with Last.fm artists page in
 
 This is a small project developed by me in my spare time. Feel free to contribute and open issues!
 
-Disclaimer
----
-
-Musiqueue is still not ready for prime-time, and it's still not published on the Chrome Store. I'm trying to build a nice and useful product while improving my programming skills, so if you'll be ever interested in this, just wait a little bit. 
-
 Musiqueue is released under a GNU general public license and it's completely free and open source.
+
+You can find the extension on the [Google webstore](https://chrome.google.com/webstore/detail/musiqueue/cehdihdnjoipjbopomjlaamdbhineicl).
 
 Changelog
 ---
 
+* **0.6** - Bugfixes and small improvements
+* **0.5** - Bugfixes
 * **0.4** - UI improvements, icons
 * **0.3** - Bug fixing, added capability to browse the band page clicking on its name. 
 * **0.2** - Basic save/list functionality. 
