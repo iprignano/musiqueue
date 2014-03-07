@@ -55,6 +55,7 @@ body {
 
 #main {
   margin-top: 25px;
+  overflow: hidden;
 }
 
 h1 {
