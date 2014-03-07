@@ -2,12 +2,15 @@
 
 // Initialize chrome storage, array containing bands and global vars
 var storage = chrome.storage.local;
-var musiqueueBands = [];
+var musiqueueBands;
 var artistName,
     artistPhoto,
     artistURL,
     artistTags,
     bands;
+
+// Restoring bands saved previously
+restoreSavedBands();
 
 // Band Object Constructor
 function Band(name, url, photo, tags) {
@@ -49,9 +52,6 @@ function saveBand(band) {
 
   storage.get('bands', function(data) {
     var bands = data.bands;
-
-    // console.log(bands);
-    // return
 
     if (typeof(bands) === 'undefined') {
       storage.set({ bands: musiqueueBands }, function() {
@@ -103,10 +103,6 @@ function removeBand(bandName) {
     }
 
     storage.set({ bands: bands }, function() {
-      // console.log('removed');
-      // console.log('updated array is');
-      // console.dir(bands);
-
       musiqueueBands = bands;
     }); 
   });
@@ -137,4 +133,13 @@ function messageOverlay(result) {
         break;
     }
   }
+}
+
+// Helper function to restore musiqueueBands
+// array each time the extension is run, in
+// order to avoid data flushing at every restart
+function restoreSavedBands() {
+  storage.get('bands', function(data) {
+    musiqueueBands = data.bands;
+  });
 }
