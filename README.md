@@ -14,6 +14,7 @@ You can find the extension on the [Google webstore](https://chrome.google.com/we
 Changelog
 ---
 
+* **0.7** - Bugfixes
 * **0.6** - Bugfixes and small improvements
 * **0.5** - Bugfixes
 * **0.4** - UI improvements, icons
