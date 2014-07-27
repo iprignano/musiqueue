@@ -54,6 +54,7 @@ function saveBand(band) {
     var bands = data.bands;
 
     if (typeof(bands) === 'undefined') {
+      musiqueueBands = [];
       storage.set({ bands: musiqueueBands }, function() {
         console.log('I pushed an empty array');
       });
@@ -104,7 +105,7 @@ function removeBand(bandName) {
 
     storage.set({ bands: bands }, function() {
       musiqueueBands = bands;
-    }); 
+    });
   });
 }
 
@@ -112,7 +113,7 @@ function removeBand(bandName) {
 function messageOverlay(result) {
   var views = chrome.extension.getViews({ type: "popup" });
   for (var i = 0; i < views.length; i++) {
-    
+
     var container = views[i].document.getElementById('container');
     var overlay   = $(container).find('.overlay');
 
